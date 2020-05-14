@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using CleanArch.MVC.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+//using CleanArch.Infrastructure.Data.Context;
 
 namespace CleanArch.MVC
 {
@@ -39,6 +40,9 @@ namespace CleanArch.MVC
                     Configuration.GetConnectionString("UniversityIdentityDBConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddDbContext<UniverstyDBContext>(options =>
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("UniversityIdentityDBConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
